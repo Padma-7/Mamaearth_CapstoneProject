@@ -14,6 +14,7 @@ Feature: Verifying Order Placing Functionality
     When user clicks on add address button
     Then verify user is on address page
 
+    #working in web
     @web@android
   Scenario: Verify user can place order and checkout
     When user fills address details
@@ -25,6 +26,7 @@ Feature: Verifying Order Placing Functionality
 
 
 
+      #working
       @web
   Scenario: Verify user cannot place order with invalid address details
     When user fills invalid address details

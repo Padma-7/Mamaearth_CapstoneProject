@@ -3,6 +3,7 @@ import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.ChatBotPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 public class AndroidChatBotPage extends BasePage implements ChatBotPage {
     @FindBy(xpath = "//android.view.View[@resource-id='app']/android.view.View[2]/android.view.View[1]/android.widget.EditText")
     WebElement fullNameInput;
@@ -18,10 +19,13 @@ public class AndroidChatBotPage extends BasePage implements ChatBotPage {
     WebElement chatInput;
     @FindBy(xpath = "//android.widget.TextView[contains(@text,'Here are some great product recommendations')]")
     WebElement replyText;
+    @FindBy(xpath="//p[contains(text(),'Welcome to Mamaearth')]")
+    WebElement welcomeText ;
 
     public void fillInTheDetails(String name,String email,String phone) {
         fullNameInput.sendKeys(name);
         emailInput.sendKeys(email);
+        phoneInput.click();
         phoneInput.sendKeys(phone);
     }
 
@@ -39,5 +43,9 @@ public class AndroidChatBotPage extends BasePage implements ChatBotPage {
             scrollPageUp();
         }while(!replyText.isDisplayed());
         return isDisplayed(replyText);
+    }
+
+    public boolean isWelcomeTextDisplayed(){
+        return isDisplayed(welcomeText);
     }
 }

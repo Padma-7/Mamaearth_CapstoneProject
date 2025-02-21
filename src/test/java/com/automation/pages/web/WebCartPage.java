@@ -80,7 +80,7 @@ public class WebCartPage extends BasePage implements CartPage {
             }
         }
         public boolean isProductDisplayed(){
-            return ((productnameFromCart.getText()).equals(ConfigReader.getConfigValue("productAddedToCart")));
+            return ((productnameFromCart.getText()).equals(ConfigReader.getConfigValue("product.name")));
         }
 
     }

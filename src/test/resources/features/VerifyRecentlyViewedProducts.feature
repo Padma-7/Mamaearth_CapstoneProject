@@ -1,6 +1,6 @@
 @web
 Feature: Verifying Recently Viewed Products
-
+#working
   Scenario: verify the viewed product is in the recently
     Given user opens the website
     Then verify user is on home page

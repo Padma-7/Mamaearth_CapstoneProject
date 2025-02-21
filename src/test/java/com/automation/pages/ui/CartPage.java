@@ -13,6 +13,8 @@ public interface CartPage {
     default void increaseTheQuantity(String quantity){}
 
     boolean isCartEmpty();
+
     void goToHomePage();
+
     boolean isProductDisplayed();
 }

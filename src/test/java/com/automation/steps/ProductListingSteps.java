@@ -80,4 +80,33 @@ public class ProductListingSteps extends BaseSteps{
     public void theTotalCountDisplayedShouldMatchTheActualNumberOfProductsListed() {
         Assert.assertTrue(productListingPage.isCountEqualsTotalProducts());
     }
+
+    @Then("verify user see search results related to {string}")
+    public void verifyUserSeeSearchResultsRelatedTo(String product) {
+        Assert.assertTrue(productListingPage.isSearchResultFound(ConfigReader.getConfigValue(product)));
+    }
+    @Then("verify user see the invalid message")
+    public void verifyUserSeeAMessage() {
+        Assert.assertTrue(productListingPage.isInvalidMessageDisplayed());
+    }
+
+    @Then("verify cart quantity has increased by {string}")
+    public void verifyCartQuantityHasIncreased(String number) {
+        productListingPage.clickOnFirstItem();
+        Assert.assertTrue(productDetailsPage.HasCartQtyIncreased(number));
+        productDetailsPage.clickOnBackButton();
+
+    }
+
+    @When("user click on the profile icon from product page")
+    public void userClickOnTheProfileIconFromProductPage() {
+        productDetailsPage.clickOnProfileIcon();
+    }
+
+    @Then("verify cart quantity has decreased")
+    public void verifyCartQuantityHasDecreased() {
+        productListingPage.clickOnFirstItem();
+        Assert.assertTrue(productDetailsPage.HasCartQtyDecreased());
+        productDetailsPage.clickOnBackButton();
+    }
 }

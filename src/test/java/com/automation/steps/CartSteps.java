@@ -33,5 +33,19 @@ public class CartSteps extends BaseSteps{
         cartPage.increaseTheQuantity(quantity);
     }
 
+    @And("verify cart is empty")
+    public void verifyCartIsEmpty() {
+        Assert.assertTrue(cartPage.isCartEmpty());
+    }
+
+    @Then("user goes to home page")
+    public void userGoesToHomePage() {
+        cartPage.goToHomePage();
+    }
+
+    @Then("verify product name is displayed there")
+    public void verifyProductNameIsDisplayedThere() {
+        Assert.assertTrue(cartPage.isProductDisplayed());
+    }
 
 }

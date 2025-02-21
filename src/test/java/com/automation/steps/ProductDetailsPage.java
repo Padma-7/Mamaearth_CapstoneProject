@@ -35,4 +35,28 @@ public class ProductDetailsPage extends BaseSteps {
         productDetailsPage.ClickOnAddToCartBtn();
 
     }
+
+    @And("user goes back to product listing page")
+    public void userGoesBackToProductListingPage() {
+        productDetailsPage.clickOnBackButton();
+    }
+    @And("clicks on product add to cart")
+    public void clicksOnItsAddToCart() {
+        productDetailsPage.clickOnProductAddToCartBtn();
+    }
+
+    @And("clicks on add to cart")
+    public void clicksOnAddToCart() {
+        productDetailsPage.ClickOnAddToCartBtn1();
+    }
+
+    @And("user clicks on cart icon from product page")
+    public void userClicksOnCartIconFromProductPage() {
+        productDetailsPage.clickOnCartIcon();
+    }
+
+    @And("user gets the product name")
+    public void userGetsTheProductName() {
+        ConfigReader.setConfigValue("productAddedToCart",productDetailsPage.getProductName());
+    }
 }

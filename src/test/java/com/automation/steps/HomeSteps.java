@@ -90,4 +90,59 @@ public class HomeSteps extends BaseSteps{
     public void userClicksOnSearchBar() {
         homePage.clickOnSearchBar();
     }
+
+    @When("user selects the first product from home page")
+    public void userSelectsTheFirstProductFromHomePage() {
+        //homePage.userSelectFirstProductFromHomePage();
+        homePage.addToCartFirstItem();
+    }
+
+    @When("user clicks on cart icon")
+    public void userClicksOnCartIcon() {
+        productDetailsPage.clickOnCartIcon();
+    }
+
+
+
+    @When("user adds the first product to cart")
+    public void userAddsTheFirstProductToCart() {
+        homePage.addToCartFirstItem();
+    }
+
+    @Then("verify added to cart popup is displayed")
+    public void verifyAddedToCartPopupIsDisplayed() {
+        Assert.assertTrue(homePage.isPopUpDisplayed());
+    }
+
+    @When("user increases the quantity of the same product by {string}")
+    public void userIncreasesTheQuantityOfTheProductTo(String productNumber) {
+        homePage.addSameProductToCart(productNumber);
+    }
+
+    @Then("verify cart quantity shows one")
+    public void verifyCartQuantityShows() {
+        Assert.assertTrue(homePage.verifyCartNumberShowsOne());
+    }
+
+    @When("user adds {string} different products to cart")
+    public void userAddsDifferentProductsToCart(String productNumber) {
+        homePage.addProductToCart(productNumber);
+    }
+
+    @Then("verify cart quantity has updated to {string}")
+    public void verifyCartQuantityHasUpdatedTo(String cartNumber) {
+        Assert.assertTrue(homePage.isCartNumberUpdated(cartNumber));
+    }
+
+    @When("user remove that product")
+    public void userRemoveThatProduct() {
+        homePage.removeProductFromCart();
+    }
+
+    @Then("verify removed from cart popup is displayed")
+    public void verifyRemovedFromCartPopupIsDisplayed() {
+        Assert.assertTrue(homePage.isRemovedPopUpDisplayed());
+    }
+
+
 }

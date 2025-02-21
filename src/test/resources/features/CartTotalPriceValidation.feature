@@ -1,5 +1,5 @@
 Feature: Validate Total Price in Cart
-
+#not completed
 
   Scenario: User adds multiple items to the cart and verifies the total price
     Given user opens the website

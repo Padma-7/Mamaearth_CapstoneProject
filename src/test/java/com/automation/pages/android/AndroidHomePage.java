@@ -2,6 +2,7 @@ package com.automation.pages.android;
 
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.HomePage;
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -53,7 +54,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
 
     @Override
     public boolean isHomePageDisplayed() {
-        pause(4000);
+        pause(5000);
         return isDisplayed(profileIcon);
     }
 

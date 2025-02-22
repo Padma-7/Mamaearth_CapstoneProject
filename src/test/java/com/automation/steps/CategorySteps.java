@@ -1,5 +1,6 @@
 package com.automation.steps;
 
+import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,6 +10,8 @@ public class CategorySteps extends BaseSteps{
     @Then("verify user is on category page")
     public void verifyUserIsOnCategoryPage() {
         Assert.assertTrue(categoryPage.isCategoryPageDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user selects specific ingredient {string}")

@@ -2,6 +2,7 @@
 package com.automation.steps;
 
 import com.automation.utils.ConfigReader;
+import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,6 +16,8 @@ public class ChatBotSteps extends BaseSteps{
     public void verifyUserIsOnChatTab() {
 
         Assert.assertTrue(chatBotPage.isUserInChatPage());
+        CucumberReportManager.attachScreenshot();
+
 
     }
 
@@ -47,12 +50,16 @@ public class ChatBotSteps extends BaseSteps{
     public void verifyChatbotRespondsWithProductRecommendationsForTheSame() {
 
         Assert.assertTrue(chatBotPage.IsChatBotReplyDisplayed());
+        CucumberReportManager.attachScreenshot();
+
 
     }
 
     @Then("verify chatbot responds with welcome message")
     public void verifyChatbotRespondsWithWelcomeMessage() {
         Assert.assertTrue(chatBotPage.isWelcomeTextDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 }
 

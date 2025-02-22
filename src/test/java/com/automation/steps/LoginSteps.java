@@ -2,6 +2,7 @@ package com.automation.steps;
 
 import com.automation.pages.web.WebLoginPage;
 import com.automation.utils.ConfigReader;
+import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,6 +13,8 @@ public class LoginSteps extends BaseSteps{
     @Then("verify user is on login page")
     public void verifyUserIsOnLoginPage() {
         Assert.assertTrue(loginPage.isLoginPageDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user enters valid phone number {string}")
@@ -37,6 +40,8 @@ public class LoginSteps extends BaseSteps{
     @Then("verify user phone number is present in login page")
     public void verifyUserPhoneNumberIsPresentInLoginPage() {
         Assert.assertTrue(loginPage.isPhoneNumberDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @And("clicks on logout link")
@@ -47,11 +52,15 @@ public class LoginSteps extends BaseSteps{
     @Then("verify user logged out successfully")
     public void verifyUserLoggedOutSuccessfully() {
         Assert.assertTrue(loginPage.isLoggedOut());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @Then("verify error message is displayed")
     public void verifyErrorMessageIsDisplayed() {
         Assert.assertTrue(loginPage.isErrorMessageDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @When("clicks on continue button")

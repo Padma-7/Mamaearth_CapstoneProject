@@ -1,3 +1,4 @@
+@android
 Feature: Verifying Order Placing Functionality
 
   Background:

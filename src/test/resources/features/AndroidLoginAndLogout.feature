@@ -1,3 +1,4 @@
+@android
 Feature: Verifying Login and Logout Functionality
 
   Background:

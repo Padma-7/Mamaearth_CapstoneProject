@@ -1,5 +1,6 @@
 package com.automation.steps;
 
+import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,11 +11,15 @@ public class CartSteps extends BaseSteps{
     @Then("verify user is on cart page")
     public void verifyUserIsOnCartPage() {
         Assert.assertTrue(cartPage.isCartPageDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @And("verify user gets the price summary")
     public void verifyUserGetsThePriceSummary() {
         Assert.assertTrue(cartPage.isPriceSummaryDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user click on proceed to pay")
@@ -36,6 +41,8 @@ public class CartSteps extends BaseSteps{
     @And("verify cart is empty")
     public void verifyCartIsEmpty() {
         Assert.assertTrue(cartPage.isCartEmpty());
+        CucumberReportManager.attachScreenshot();
+
     }
 
     @Then("user goes to home page")
@@ -46,6 +53,8 @@ public class CartSteps extends BaseSteps{
     @Then("verify product name is displayed there")
     public void verifyProductNameIsDisplayedThere() {
         Assert.assertTrue(cartPage.isProductDisplayed());
+        CucumberReportManager.attachScreenshot();
+
     }
 
 }

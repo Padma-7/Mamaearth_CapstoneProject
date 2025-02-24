@@ -1,4 +1,4 @@
-Feature: Verifying user can edit their profile
+git Feature: Verifying user can edit their profile
 
   #working
   Scenario: user edits the information in profile and verifying the changes are saved in android

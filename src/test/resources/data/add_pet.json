@@ -1,18 +1,23 @@
 {
   "id": 0,
   "category": {
-    "id": 0,
+    "id": 1,
     "name": "dog"
   },
-  "name": "doggie",
+  "name": "subbu",
   "photoUrls": [
     "string"
   ],
   "tags": [
     {
-      "id": 0,
-      "name": "string"
+      "id": 1,
+      "name": "Friendly"
+    },
+    {
+      "id": 2,
+      "name": "Vaccinated"
     }
   ],
   "status": "available"
 }
+

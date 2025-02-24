@@ -5,8 +5,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.io.FileNotFoundException;
+
+import static com.automation.utils.RestAssuredUtils.getResponseFieldValue;
 
 public class RequestSteps {
 
@@ -31,4 +34,23 @@ public class RequestSteps {
     }
 
 
+    @And("store {string} to config value {string}")
+    public void storeToConfigValue(String jsonPath, String key) {
+        RestAssuredUtils.storeResponseFieldValueToConfig(jsonPath, key);
+    }
+
+    @And("verify response body has a field {string} is not null")
+    public void verifyResponseBodyHasAFieldIsNotNull(String jsonPath) {
+        Assert.assertNotNull(getResponseFieldValue(jsonPath));
+    }
+
+    @When("user performs get call")
+    public void userPerformsGetCall() {
+        RestAssuredUtils.get();
+    }
+
+    @When("user performs delete call")
+    public void userPerformsDeleteCall() {
+        RestAssuredUtils.delete();
+    }
 }

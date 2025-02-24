@@ -50,6 +50,8 @@ public class AndroidProductDetailsPage extends BasePage implements ProductDetail
 
     @Override
     public boolean isTitleWithKeyword(String keyword){
+        ConfigReader.setConfigValue("viewed.product", productTitle.getText());
+
         return productTitle.getText().toLowerCase().contains(keyword.toLowerCase());
     }
 

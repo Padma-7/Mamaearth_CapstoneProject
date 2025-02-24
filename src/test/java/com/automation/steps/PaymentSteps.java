@@ -1,6 +1,5 @@
 package com.automation.steps;
 
-import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +9,7 @@ public class PaymentSteps extends BaseSteps{
     @Then("verify user is on payment page")
     public void verifyUserIsOnPaymentPage() {
         Assert.assertTrue(paymentPage.isPaymentPageDisplayed());
-        CucumberReportManager.attachScreenshot();
+        //CucumberReportManager.attachScreenshot();
 
     }
 
@@ -27,7 +26,7 @@ public class PaymentSteps extends BaseSteps{
     @Then("verify user cannot place order")
     public void verifyUserCannotPlaceOrder() {
         Assert.assertTrue(paymentPage.isConfirmationMsgDisplayed());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 }

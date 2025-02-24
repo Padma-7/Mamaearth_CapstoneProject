@@ -2,6 +2,7 @@ package com.automation.pages.android;
 
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.SearchPage;
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +15,12 @@ public class AndroidSearchPage extends BasePage implements SearchPage {
     WebElement trendingSearchs;
 
     String XPATH_tRENDING_SEARCHES = "//android.widget.TextView[@text='%s']";
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Your Recently Viewed Products\"]")
+    WebElement recentlyViewed ;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\" Add to cart\"]/../../preceding-sibling::android.view.ViewGroup[1]/android.widget.TextView[1]")
+    List<WebElement> productsTitle;
 
     public boolean isTrendingSearchesDisplayed(){
         //return isDisplayed(trendingSearchs);
@@ -29,11 +36,11 @@ public class AndroidSearchPage extends BasePage implements SearchPage {
     }
 
     public boolean isRecentlyViewedDisplayed(){
-        return false;
+        return isDisplayed(recentlyViewed);
     }
 
     public boolean isViewedProductPresent(){
-        return false;
+        return ConfigReader.getConfigValue("viewed.product").equals(productsTitle.get(0).getText());
     }
 
 

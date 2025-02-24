@@ -41,7 +41,7 @@ public class AndroidProductListingPage extends BasePage implements ProductListin
     @FindBy(xpath = "//android.widget.TextView[@text=\" ADD\"]/../../preceding-sibling::android.view.ViewGroup[2]/android.widget.TextView[5]")
     List<WebElement> ratingsElements;
 
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Add to cart\"]/../preceding-sibling::android.widget.TextView[2]")
+    @FindBy(xpath = "//android.widget.TextView[@text=\" ADD\"]/../../preceding-sibling::android.view.ViewGroup[2]/android.widget.TextView[1]")
     List<WebElement> productsTitle ;
 
   @FindBy(xpath = "//android.widget.TextView[contains(@text,'results found for ')]")
@@ -64,7 +64,7 @@ public class AndroidProductListingPage extends BasePage implements ProductListin
     @Override
     public boolean isProductListingPageDisplayed(){
         pause(4000);
-        return isDisplayed(productsTitle.get(0));
+        return isDisplayed(productsTitle.get(0)) || isDisplayed(addToCartBtn.get(0)) || isDisplayed(sortIcon) ;
     }
 
     @Override
@@ -156,7 +156,7 @@ public class AndroidProductListingPage extends BasePage implements ProductListin
             prices = new ArrayList<>();
             for (WebElement priceElement : priceElements) {
                 String priceText = priceElement.getText().replace("₹", "").replace(",", "").trim();
-                if (!priceText.isEmpty() && priceText.matches("\\d+")) { // Check if valid number
+                if (!priceText.isEmpty()) {
                     prices.add(Integer.parseInt(priceText));
                     System.out.println(priceText);
                 }
@@ -170,6 +170,7 @@ public class AndroidProductListingPage extends BasePage implements ProductListin
         }
 
 
+        System.out.println(prices);
         List<Integer> sortedPrices = new ArrayList<>(prices);
         Collections.sort(sortedPrices, Collections.reverseOrder());
 

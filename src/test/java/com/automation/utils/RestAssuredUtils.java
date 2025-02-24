@@ -83,6 +83,7 @@ public class RestAssuredUtils {
     }
 
     public static String getResponseFieldValue(String jsonPath) {
+        System.out.println(response.jsonPath().getString(jsonPath));
         return response.jsonPath().getString(jsonPath);
     }
 

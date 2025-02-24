@@ -1,9 +1,7 @@
 package com.automation.steps;
 
 import com.automation.utils.ConfigReader;
-import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -13,7 +11,7 @@ public class ProductListingSteps extends BaseSteps{
     @Then("verify user is on product listing page")
     public void verifyUserIsOnProductListingPage() {
         Assert.assertTrue(productListingPage.isProductListingPageDisplayed());
-        CucumberReportManager.attachScreenshot();
+        //CucumberReportManager.attachScreenshot();
 
     }
 
@@ -36,7 +34,7 @@ public class ProductListingSteps extends BaseSteps{
     @Then("verify products are sorted by price low to high")
     public void verifyProductsAreSortedByPriceLowToHigh() {
         Assert.assertTrue(productListingPage.isSortedLowToHigh());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 
@@ -49,7 +47,7 @@ public class ProductListingSteps extends BaseSteps{
     @Then("verify products are sorted by price high to low")
     public void verifyProductsAreSortedByPriceHighToLow() {
         Assert.assertTrue(productListingPage.isSortedHighToLow());
-        CucumberReportManager.attachScreenshot();
+        //CucumberReportManager.attachScreenshot();
 
 
     }
@@ -62,7 +60,7 @@ public class ProductListingSteps extends BaseSteps{
     @Then("verify products are sorted by ratings")
     public void verifyProductsAreSortedByRatings() {
         Assert.assertTrue(productListingPage.isSortedByRatings());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 
@@ -84,7 +82,7 @@ public class ProductListingSteps extends BaseSteps{
     @And("verify all products contain the trending search keyword {string}")
     public void verifyAllProductsContainTheTrendingSearchKeyword(String keyword) {
         Assert.assertTrue(productListingPage.isProductsTitleWithKeyword(keyword));
-        CucumberReportManager.attachScreenshot();
+      //  CucumberReportManager.attachScreenshot();
 
     }
 
@@ -96,13 +94,13 @@ public class ProductListingSteps extends BaseSteps{
     @Then("verify user see search results related to {string}")
     public void verifyUserSeeSearchResultsRelatedTo(String product) {
         Assert.assertTrue(productListingPage.isSearchResultFound(ConfigReader.getConfigValue(product)));
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
     @Then("verify user see the invalid message")
     public void verifyUserSeeAMessage() {
         Assert.assertTrue(productListingPage.isInvalidMessageDisplayed());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 
@@ -110,10 +108,10 @@ public class ProductListingSteps extends BaseSteps{
     public void verifyCartQuantityHasIncreased(String number) {
         productListingPage.clickOnFirstItem();
         Assert.assertTrue(productDetailsPage.HasCartQtyIncreased(number));
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
         productDetailsPage.clickOnBackButton();
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
 
     }
@@ -127,7 +125,7 @@ public class ProductListingSteps extends BaseSteps{
     public void verifyCartQuantityHasDecreased() {
         productListingPage.clickOnFirstItem();
         Assert.assertTrue(productDetailsPage.HasCartQtyDecreased());
-        CucumberReportManager.attachScreenshot();
+        //CucumberReportManager.attachScreenshot();
         productDetailsPage.clickOnBackButton();
     }
 

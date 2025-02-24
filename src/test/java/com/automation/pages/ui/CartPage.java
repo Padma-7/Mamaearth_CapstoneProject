@@ -17,4 +17,8 @@ public interface CartPage {
     void goToHomePage();
 
     boolean isProductDisplayed();
+
+    default boolean isRecentlyViewedDisplayed(){return false;}
+
+    default boolean isViewedProductPresent(){return false;}
 }

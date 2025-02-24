@@ -1,7 +1,6 @@
 package com.automation.steps;
 
 import com.automation.utils.ConfigReader;
-import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,7 +18,7 @@ public class HomeSteps extends BaseSteps{
     @Then("verify user is on home page")
     public void verify_user_is_on_home_page() {
         Assert.assertTrue(homePage.isHomePageDisplayed());
-        CucumberReportManager.attachScreenshot();
+        //CucumberReportManager.attachScreenshot();
 
     }
 
@@ -115,7 +114,7 @@ public class HomeSteps extends BaseSteps{
     @Then("verify added to cart popup is displayed")
     public void verifyAddedToCartPopupIsDisplayed() {
         Assert.assertTrue(homePage.isPopUpDisplayed());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 
@@ -127,7 +126,7 @@ public class HomeSteps extends BaseSteps{
     @Then("verify cart quantity shows one")
     public void verifyCartQuantityShows() {
         Assert.assertTrue(homePage.verifyCartNumberShowsOne());
-        CucumberReportManager.attachScreenshot();
+        //CucumberReportManager.attachScreenshot();
 
     }
 
@@ -139,7 +138,7 @@ public class HomeSteps extends BaseSteps{
     @Then("verify cart quantity has updated to {string}")
     public void verifyCartQuantityHasUpdatedTo(String cartNumber) {
         Assert.assertTrue(homePage.isCartNumberUpdated(cartNumber));
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 
@@ -151,7 +150,7 @@ public class HomeSteps extends BaseSteps{
     @Then("verify removed from cart popup is displayed")
     public void verifyRemovedFromCartPopupIsDisplayed() {
         Assert.assertTrue(homePage.isRemovedPopUpDisplayed());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 

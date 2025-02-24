@@ -1,6 +1,5 @@
 package com.automation.steps;
 
-import com.automation.utils.CucumberReportManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -11,14 +10,14 @@ public class ProfileSteps extends BaseSteps{
     @Then("verify user is on profile page")
     public void verifyUserIsOnProfilePage() {
         Assert.assertTrue(profilePage.isProfilePageDisplayed());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 
     @Then("verify user login is successful")
     public void verify_user_login_is_successful() {
         Assert.assertFalse(profilePage.isLoginBtnNotDisplayed());
-        CucumberReportManager.attachScreenshot();
+      //  CucumberReportManager.attachScreenshot();
 
     }
 
@@ -31,7 +30,7 @@ public class ProfileSteps extends BaseSteps{
     @Then("verify user logged out successful")
     public void verifyUserLoggedOutSuccessful() {
         Assert.assertTrue(profilePage.userLogoutSuccessful());
-        CucumberReportManager.attachScreenshot();
+       // CucumberReportManager.attachScreenshot();
 
     }
 

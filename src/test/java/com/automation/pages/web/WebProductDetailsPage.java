@@ -2,6 +2,7 @@ package com.automation.pages.web;
 
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.ProductDetailsPage;
+import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,6 +20,13 @@ public class WebProductDetailsPage extends BasePage implements ProductDetailsPag
 
 
     @Override
+    public boolean isTitleWithKeyword(String keyword){
+        ConfigReader.setConfigValue("product.name", productTitle.getText());
+        return productTitle.getText().toLowerCase().contains(keyword.toLowerCase());
+
+    }
+
+    @Override
     public void ClickOnAddToCartBtn(){
         addToCartBtn.click();
     }
@@ -28,17 +36,8 @@ public class WebProductDetailsPage extends BasePage implements ProductDetailsPag
         return isDisplayed(addToCartBtn);
     }
 
-
     @Override
-    public boolean isTitleWithKeyword(String keyword){
-        if(productTitle.getText().toLowerCase().contains(keyword.toLowerCase())){
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public void ClickOnAddToCartBtn1(){
+    public void ClickOnAddToCartBtn1() {
         addToCartBtn.click();
     }
 

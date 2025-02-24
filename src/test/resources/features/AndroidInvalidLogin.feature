@@ -1,3 +1,4 @@
+@android
 Feature: Verifying Invalid Login Functionality
   #working
   Background:
@@ -12,6 +13,7 @@ Feature: Verifying Invalid Login Functionality
     When user enters invalid phone number "<login.phone>"
     And clicks on continue button
     Then verify error message is displayed
+
 
     Examples:
       | login.phone |

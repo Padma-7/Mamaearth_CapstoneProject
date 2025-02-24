@@ -8,6 +8,19 @@ import org.openqa.selenium.support.FindBy;
 
 public class AndroidProductDetailsPage extends BasePage implements ProductDetailsPage {
 
+
+    @FindBy(xpath = "//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.TextView[1]")
+    WebElement productTitle;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"ADD TO CART\"]")
+    WebElement addToCartBtn ;
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
+    WebElement cancelBtn ;
+
+    @FindBy(xpath = "//android.widget.TextView[@text=\"VIEW CART\"]\n")
+    WebElement viewCartBtn;
+
     @FindBy(xpath="(//android.widget.TextView[@text='Add to cart'])[1]")
     WebElement addToCartBtn1;
 
@@ -35,32 +48,17 @@ public class AndroidProductDetailsPage extends BasePage implements ProductDetail
 
 
     @Override
-    public void ClickOnAddToCartBtn1(){
-        addToCartBtn1.click();
-    }
-
-
-    @FindBy(xpath = "//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup/android.widget.TextView[1]")
-    WebElement productTitle;
-    @FindBy(xpath = "//android.widget.TextView[@text=\"ADD TO CART\"]")
-    WebElement addToCartBtn ;
-    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.ImageView")
-    WebElement cancelBtn ;
-    @FindBy(xpath = "//android.widget.TextView[@text=\"VIEW CART\"]\n")
-    WebElement viewCartBtn;
-
-
     public boolean isTitleWithKeyword(String keyword){
+        ConfigReader.setConfigValue("viewed.product", productTitle.getText());
+
         return productTitle.getText().toLowerCase().contains(keyword.toLowerCase());
     }
 
+    @Override
     public void ClickOnAddToCartBtn(){
         addToCartBtn.click();
         // cancelBtn.click();
     }
-
-
-
 
 
     public void clickOnBackButton(){
@@ -128,7 +126,10 @@ public class AndroidProductDetailsPage extends BasePage implements ProductDetail
 
     }
 
+    public void ClickOnAddToCartBtn1(){}
+
     public void clickOnProfileIcon(){
         profileIcon.click();
     }
 }
+

@@ -29,28 +29,23 @@ public interface HomePage {
 
     default void selectManageAddressOption(){}
 
+    void goToBabyCareProducts();
+
+    void clickOnViewAllBtn();
+
+    default void clickOnHomeIcon(){}
+
+    void clickOnSearchBar();
+
     void clickOnCartIcon();
-
     void addSameProductToCart(String productNumber);
-
     void addToCartFirstItem();
-
     boolean isPopUpDisplayed();
-
     boolean verifyCartNumberShowsOne();
-
     void addProductToCart(String productNumber);
-
     boolean isCartNumberUpdated(String cartNumber);
-
     void removeProductFromCart();
-
     boolean isRemovedPopUpDisplayed();
 
-
     void userSelectFirstProductFromHomePage();
-    void goToBabyCareProducts();
-    void clickOnViewAllBtn();
-    default void clickOnHomeIcon(){}
-    void clickOnSearchBar();
 }

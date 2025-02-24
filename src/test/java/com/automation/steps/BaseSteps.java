@@ -14,10 +14,11 @@ public class BaseSteps {
     ProductListingPage productListingPage;
     ProductDetailsPage productDetailsPage;
     CartPage cartPage;
-    //PaymentPage paymentPage;
+    PaymentPage paymentPage;
     AddressPage addressPage;
     CategoryPage categoryPage;
     ChatBotPage chatBotPage;
+    SearchPage searchPage;
 
     public BaseSteps() {
         if (ConfigReader.getConfigValue("application.type").equals("web")) {
@@ -27,9 +28,10 @@ public class BaseSteps {
             productListingPage = new WebProductListingPage();
             productDetailsPage = new WebProductDetailsPage();
             cartPage = new WebCartPage();
-            //paymentPage = new WebPaymentPage();
+            paymentPage = new WebPaymentPage();
             addressPage = new WebAddressPage();
             chatBotPage = new WebChatBotPage();
+            searchPage = new WebSearchPage();
         } else {
             homePage = new AndroidHomePage();
             loginPage = new AndroidLoginPage();
@@ -37,10 +39,11 @@ public class BaseSteps {
             productListingPage = new AndroidProductListingPage();
             productDetailsPage = new AndroidProductDetailsPage();
             cartPage = new AndroidCartPage();
-            //paymentPage = new AndroidPaymentPage();
+            paymentPage = new AndroidPaymentPage();
             addressPage = new AndroidAddressPage();
             categoryPage = new AndroidCategoryPage();
             chatBotPage = new AndroidChatBotPage();
+            searchPage = new AndroidSearchPage();
         }
     }
 }

@@ -31,9 +31,9 @@ public interface ProductListingPage {
 
     default void selectFirstItem(){}
 
-    default boolean isProductsTitleWithKeyword(String keyword){return true;}
+    boolean isProductsTitleWithKeyword(String keyword);
 
-    default boolean isCountEqualsTotalProducts(){return true;}
+    boolean isCountEqualsTotalProducts();
 
 
 }

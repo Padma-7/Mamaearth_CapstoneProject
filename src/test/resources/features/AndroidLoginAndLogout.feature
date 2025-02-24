@@ -1,6 +1,6 @@
-Feature: Login and Logout Functionality
+@android
+Feature: Verifying Login and Logout Functionality
 
-  #working
   Background:
     Given user opens the website
     Then verify user is on home page
@@ -15,6 +15,7 @@ Feature: Login and Logout Functionality
     Then user should be redirected to the OTP details page
     When user enter otp and click on submit button
     Then verify user login is successful
+
 
   Scenario: verify user can logout
     When user enters valid phone number "login.phone"

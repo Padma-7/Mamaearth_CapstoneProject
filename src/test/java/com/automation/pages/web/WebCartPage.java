@@ -6,6 +6,8 @@ import com.automation.utils.ConfigReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class WebCartPage extends BasePage implements CartPage {
 
     @FindBy(xpath = "//div[@class=\"details-title\"]")
@@ -23,22 +25,22 @@ public class WebCartPage extends BasePage implements CartPage {
     @FindBy(xpath = "//div[text()='Add address'  and @class='proceed-text']")
     WebElement addAddressPageTitle;
 
+    @FindBy(xpath = "//div[@class=\"item-quantity\"]")
+    WebElement itemQuantity ;
+
+    @FindBy(xpath = "//div[@class=\"qty-selector\"]/div[text()=\" + \"]")
+    WebElement plusButton ;
+
     @FindBy(xpath="//div[text()='Your cart is empty !']")
     WebElement cartEmptyMessage;
 
     @FindBy(xpath="//button[text()='SHOP NOW']")
-        WebElement shopNowButton ;
-
+    WebElement shopNowButton ;
     @FindBy(xpath="//a[text()='Home']")
-        WebElement homeTab;
-
+    WebElement homeTab;
     @FindBy(xpath="//div[@class=\"item-name\"]")
-        WebElement productnameFromCart;
+    WebElement productnameFromCart;
 
-    @FindBy(xpath = "//div[@class=\"item-quantity\"]")
-    WebElement itemQuantity ;
-    @FindBy(xpath = "//div[@class=\"qty-selector\"]/div[text()=\" + \"]")
-    WebElement plusButton ;
 
 
 
@@ -58,21 +60,24 @@ public class WebCartPage extends BasePage implements CartPage {
         addAddressBtn.click();
     }
 
-    public boolean isCartEmpty(){
-        return isDisplayed(cartEmptyMessage);
-    }
 
-    public void goToHomePage(){
-        if(isDisplayed(shopNowButton)) {
-            shopNowButton.click();
-        } else if (isDisplayed(homeTab)) {
-            homeTab.click();
+
+
+
+
+        public boolean isCartEmpty(){
+            return isDisplayed(cartEmptyMessage);
         }
-    }
-
-    public boolean isProductDisplayed(){
-        return ((productnameFromCart.getText()).equals(ConfigReader.getConfigValue("productAddedToCart")));
-    }
+        public void goToHomePage(){
+            if(isDisplayed(shopNowButton)) {
+                shopNowButton.click();
+            } else if (isDisplayed(homeTab)) {
+                homeTab.click();
+            }
+        }
+        public boolean isProductDisplayed(){
+            return ((productnameFromCart.getText()).equals(ConfigReader.getConfigValue("product.name")));
+        }
 
     @Override
     public void increaseTheQuantity(String quantity) {

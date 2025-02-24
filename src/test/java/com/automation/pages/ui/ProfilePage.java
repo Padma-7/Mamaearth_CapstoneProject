@@ -21,4 +21,5 @@ public interface ProfilePage {
     void saveChanges();
 
     boolean changesApplied(String key);
+    default void selectAddresses(){}
 }

@@ -76,6 +76,19 @@ public class WebAddressPage extends BasePage implements AddressPage {
         }
     }
 
+    public void fillInvalidAddress(){
+        firstnameInput.sendKeys(ConfigReader.getConfigValue("invalid.first.name"));
+        lastnameInput.sendKeys(ConfigReader.getConfigValue("invalid.last.name"));
+        emailInput.sendKeys(ConfigReader.getConfigValue("invalid.email"));
+        mobileNumberInput.sendKeys(ConfigReader.getConfigValue("invalid.mobile.number"));
+        postCodeInput.sendKeys(ConfigReader.getConfigValue("postal.code"));
+        if(isPresent(addressInput1))
+            addressInput1.sendKeys(ConfigReader.getConfigValue("invalid.address"));
+        else if (isDisplayed(addressInput2)) {
+            addressInput2.sendKeys(ConfigReader.getConfigValue("invalid.address"));
+        }
+    }
+
     public void clickOnSaveAddressButton(){
         saveAddressBtn.click();
     }

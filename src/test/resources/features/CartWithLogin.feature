@@ -34,6 +34,7 @@ Feature: Verifying product stays in cart with login
     And user clicks on cart icon from product page
     Then verify product name is displayed there
 
+    #working
   @web
   Scenario: user adds a product to cart after login in web
     Given user opens the website
@@ -46,7 +47,11 @@ Feature: Verifying product stays in cart with login
     When user enter otp and click on submit button
     Then verify user phone number is present in login page
     And user goes to home page
-    When user selects the first product from home page
+    When user search for product "desired.product"
+    Then verify user is on product listing page
+    When user select first product with keyword "keyword"
+    Then verify the title has the keyword "keyword"
+    When user add the product to cart
     And user gets the product name
     And clicks on logout link
     Then verify user logged out successfully

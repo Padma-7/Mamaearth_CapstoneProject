@@ -20,8 +20,8 @@ public class AndroidProfilePage extends BasePage implements ProfilePage {
     @FindBy(xpath="//android.widget.TextView[@text='Logout']")
     WebElement logoutIcon;
 
-
-
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Addresses\"]\n")
+    WebElement addressesOption ;
 
 
     @Override
@@ -53,6 +53,9 @@ public class AndroidProfilePage extends BasePage implements ProfilePage {
     @Override
     public boolean userLogoutSuccessful() {
         return isDisplayed(loginIcon);
+    }
+    public void selectAddresses(){
+        addressesOption.click();
     }
 
     //new

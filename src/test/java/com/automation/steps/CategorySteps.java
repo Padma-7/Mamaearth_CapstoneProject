@@ -9,6 +9,8 @@ public class CategorySteps extends BaseSteps{
     @Then("verify user is on category page")
     public void verifyUserIsOnCategoryPage() {
         Assert.assertTrue(categoryPage.isCategoryPageDisplayed());
+      //  CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user selects specific ingredient {string}")

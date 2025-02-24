@@ -1,6 +1,5 @@
 Feature: Verifying Invalid Login Functionality
-  #working
-
+#working
   Background:
     Given user opens the website
     Then verify user is on home page
@@ -14,6 +13,6 @@ Feature: Verifying Invalid Login Functionality
 
     Examples:
       | login.phone |
-      | 948065     |
+      | 948065      |
       | 99345678    |
       | 76195138    |

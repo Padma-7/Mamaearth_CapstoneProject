@@ -46,15 +46,12 @@ public class WebProductListingPage extends BasePage implements ProductListingPag
     @FindBy(xpath = "//div[@class=\"resultsfor\"]")
     WebElement resultsFound ;
 
-
-
-
-
     @FindBy(xpath="//div[text()='No products found']")
     WebElement invalidProductMessage ;
 
     @FindBy(xpath="//div[@class='searchKey']")
     WebElement searchKey;
+
 
 
     @Override
@@ -67,9 +64,10 @@ public class WebProductListingPage extends BasePage implements ProductListingPag
 
     @Override
     public void clickOnFirstProductWithKeyword(String keyword) {
-        System.out.println(productsTitle.size());
+        //System.out.println(productsTitle.size());
         for (WebElement itemItemTitle : productsTitle) {
             if (itemItemTitle.getText().toLowerCase().contains(keyword.toLowerCase())) {
+                ConfigReader.setConfigValue("viewed.product",itemItemTitle.getText());
                 itemItemTitle.click();
                 break;
             }
@@ -143,15 +141,6 @@ public class WebProductListingPage extends BasePage implements ProductListingPag
 
     }
 
-    public boolean isSearchResultFound(String product){
-        System.out.println(searchKey.getText());
-        return (searchKey.getText().contains(product));
-    }
-
-    public boolean isInvalidMessageDisplayed(){
-        return isDisplayed(invalidProductMessage);
-    }
-
     public void addToCartFirstItem(){
         addToCartBtns.get(0).click();
     }
@@ -180,6 +169,15 @@ public class WebProductListingPage extends BasePage implements ProductListingPag
 //        System.out.println(count);
 //        System.out.println(ConfigReader.getIntConfigValue("results.count") );
         return ConfigReader.getIntConfigValue("results.count") == productsTitle.size();
+    }
+
+    public boolean isSearchResultFound(String product){
+        System.out.println(searchKey.getText());
+        return (searchKey.getText().contains(product));
+    }
+
+    public boolean isInvalidMessageDisplayed(){
+        return isDisplayed(invalidProductMessage);
     }
 }
 

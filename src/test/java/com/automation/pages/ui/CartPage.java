@@ -10,13 +10,15 @@ public interface CartPage {
 
     void clickOnAddAddressButton();
 
+    default void increaseTheQuantity(String quantity){}
+
     boolean isCartEmpty();
 
     void goToHomePage();
 
     boolean isProductDisplayed();
 
-    default void increaseTheQuantity(String quantity){}
+    default boolean isRecentlyViewedDisplayed(){return false;}
 
-
+    default boolean isViewedProductPresent(){return false;}
 }

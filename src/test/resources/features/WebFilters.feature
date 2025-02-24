@@ -1,6 +1,5 @@
-Feature: Verify Filter Functionality
-  #working
-
+Feature: Verifying Filter Functionality
+#working
   Background:
     Given user opens the website
     Then verify user is on home page

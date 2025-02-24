@@ -11,8 +11,11 @@ public interface AddressPage {
 
     boolean isAddressSaved();
 
-    default void clickOnAddAddressButton(){}
+     void clickOnAddAddressButton();
 
-    default boolean isAddressFillingPageDisplayed(){return false;}
+    boolean isAddressFillingPageDisplayed();
 
-    default boolean isAddressAdded(){return false;}}
+    boolean isAddressAdded();
+
+    default void fillInvalidAddress(){}
+}

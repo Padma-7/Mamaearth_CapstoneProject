@@ -18,6 +18,8 @@ public class HomeSteps extends BaseSteps{
     @Then("verify user is on home page")
     public void verify_user_is_on_home_page() {
         Assert.assertTrue(homePage.isHomePageDisplayed());
+        //CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user clicks on login icon")
@@ -71,6 +73,32 @@ public class HomeSteps extends BaseSteps{
         homePage.selectManageAddressOption();
     }
 
+    @When("user goes to baby care products")
+    public void userGoesToBabyCareProducts() {
+        homePage.goToBabyCareProducts();
+    }
+
+    @And("clicks on view all button of baby care products")
+    public void clicksOnViewAllButtonOfBabyCareProducts() {
+        homePage.clickOnViewAllBtn();
+    }
+
+    @And("clicks on home icon")
+    public void clicksOnHomeIcon() {
+        homePage.clickOnHomeIcon();
+    }
+
+    @When("user clicks on search bar")
+    public void userClicksOnSearchBar() {
+        homePage.clickOnSearchBar();
+    }
+
+    @When("user selects the first product from home page")
+    public void userSelectsTheFirstProductFromHomePage() {
+        //homePage.userSelectFirstProductFromHomePage();
+        homePage.addToCartFirstItem();
+    }
+
     @When("user clicks on cart icon")
     public void userClicksOnCartIcon() {
         productDetailsPage.clickOnCartIcon();
@@ -86,6 +114,8 @@ public class HomeSteps extends BaseSteps{
     @Then("verify added to cart popup is displayed")
     public void verifyAddedToCartPopupIsDisplayed() {
         Assert.assertTrue(homePage.isPopUpDisplayed());
+       // CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user increases the quantity of the same product by {string}")
@@ -96,6 +126,8 @@ public class HomeSteps extends BaseSteps{
     @Then("verify cart quantity shows one")
     public void verifyCartQuantityShows() {
         Assert.assertTrue(homePage.verifyCartNumberShowsOne());
+        //CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user adds {string} different products to cart")
@@ -106,6 +138,8 @@ public class HomeSteps extends BaseSteps{
     @Then("verify cart quantity has updated to {string}")
     public void verifyCartQuantityHasUpdatedTo(String cartNumber) {
         Assert.assertTrue(homePage.isCartNumberUpdated(cartNumber));
+       // CucumberReportManager.attachScreenshot();
+
     }
 
     @When("user remove that product")
@@ -116,6 +150,8 @@ public class HomeSteps extends BaseSteps{
     @Then("verify removed from cart popup is displayed")
     public void verifyRemovedFromCartPopupIsDisplayed() {
         Assert.assertTrue(homePage.isRemovedPopUpDisplayed());
+       // CucumberReportManager.attachScreenshot();
+
     }
 
 
@@ -123,13 +159,4 @@ public class HomeSteps extends BaseSteps{
 
 
 
-
-
-
-
-    @When("user selects the first product from home page")
-    public void userSelectsTheFirstProductFromHomePage() {
-        //homePage.userSelectFirstProductFromHomePage();
-        homePage.addToCartFirstItem();
-    }
 }

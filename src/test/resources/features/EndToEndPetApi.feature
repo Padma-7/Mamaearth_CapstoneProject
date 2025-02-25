@@ -1,6 +1,8 @@
-Feature: Verify User Can Add A Pet To Store
+Feature:
 
-  Scenario: verifying user can a pet into the store
+  #working
+  @api
+  Scenario:
     Given user wants to call "pet" end point
     And set header "Content-Type" to "application/json"
     And set request body from json file "add_pet.json"
@@ -11,4 +13,12 @@ Feature: Verify User Can Add A Pet To Store
     Given user wants to call "pet/@id" end point
     When user performs get call
     Then verify status code is 200
-    Given user wants to call "pet" end point
+    Given user wants to call "pet/@id" end point
+    When user performs delete call
+    Then verify status code is 200
+    Given user wants to call "pet/@id" end point
+    When user performs get call
+    Then verify status code is 404
+
+
+

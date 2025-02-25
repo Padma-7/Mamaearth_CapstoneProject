@@ -1,3 +1,4 @@
+@web
 Feature: Verifying Invalid Login Functionality
 #working
   Background:

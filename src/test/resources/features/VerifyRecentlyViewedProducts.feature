@@ -1,4 +1,4 @@
-@web
+#working
 Feature: Verifying Recently Viewed Products
   Background:
     Given user opens the website
@@ -7,7 +7,7 @@ Feature: Verifying Recently Viewed Products
     Then verify user is on product listing page
     When user select first product with keyword "keyword"
     Then verify the title has the keyword "keyword"
-#working
+
   @web
   Scenario: verify the viewed product is in the recently in web
     When user clicks on search bar

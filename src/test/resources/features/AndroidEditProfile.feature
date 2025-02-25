@@ -1,7 +1,8 @@
+@android
 Feature: Verifying user can edit their profile
 
   #working
-  Scenario: user edits the information in profile and verifying the changes are saved in android
+  Background:
     Given user opens the website
     Then verify user is on home page
     When user click on profile icon
@@ -14,7 +15,7 @@ Feature: Verifying user can edit their profile
     When user enter otp and click on submit button
     Then verify user login is successful
 
-    #new
+  Scenario: user edits the information in profile and verifying the changes are saved in android
     When user click on Edit profile option
     Then change the "profile.credential.key" to "profile.credential.value"
     And save the changes

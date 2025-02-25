@@ -1,3 +1,4 @@
+@web
 Feature: Verifying Login and Logout Functionality
 #working
   Background:

@@ -1,3 +1,4 @@
+@web
 Feature: Verifying Adding Valid And Invalid Address Functionality
 #working
   Background:

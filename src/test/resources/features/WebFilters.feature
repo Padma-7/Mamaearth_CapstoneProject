@@ -1,3 +1,4 @@
+@web
 Feature: Verifying Filter Functionality
 #working
   Background:

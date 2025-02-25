@@ -1,3 +1,4 @@
+@web
 Feature: Verifying user can edit their profile
 
 

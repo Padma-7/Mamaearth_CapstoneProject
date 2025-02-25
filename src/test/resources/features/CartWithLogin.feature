@@ -1,6 +1,7 @@
+#working
 Feature: Verifying product stays in cart with login
 
-  #working
+
   @android
   Scenario: user adds a product to cart after login in android
     Given user opens the website
@@ -34,7 +35,7 @@ Feature: Verifying product stays in cart with login
     And user clicks on cart icon from product page
     Then verify product name is displayed there
 
-    #working
+
   @web
   Scenario: user adds a product to cart after login in web
     Given user opens the website

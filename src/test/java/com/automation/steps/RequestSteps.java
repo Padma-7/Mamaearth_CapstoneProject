@@ -3,7 +3,6 @@ package com.automation.steps;
 import com.automation.utils.RestAssuredUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
@@ -52,5 +51,10 @@ public class RequestSteps {
     @When("user performs delete call")
     public void userPerformsDeleteCall() {
         RestAssuredUtils.delete();
+    }
+
+    @And("set param {string} to {string}")
+    public void setParamTo(String key, String value) {
+        RestAssuredUtils.setFormParam(key, value);
     }
 }

@@ -23,6 +23,11 @@ public class RestAssuredUtils {
         {
             endPoint=endPoint.replace("@id",ConfigReader.getConfigValue("id"));
         }
+        if(endPoint.contains("@username"))
+        {
+            endPoint=endPoint.replace("@username",ConfigReader.getConfigValue("username"));
+        }
+
         RestAssuredUtils.endPoint= endPoint;
     }
 
@@ -37,7 +42,20 @@ public class RestAssuredUtils {
             value=value.replace("@token",ConfigReader.getConfigValue("auth.token"));
         }
         requestSpecification.header(key,value);
+
     }
+
+    public static void setFormParam(String key, String value)
+    {
+        if(key.contains("petId"))
+        {
+            value=value.replace("id",ConfigReader.getConfigValue(value));
+        }
+        requestSpecification.formParam(key, ConfigReader.getConfigValue(value));
+
+    }
+
+
 
 
     public static void post()

@@ -2,11 +2,22 @@ package com.automation.steps;
 
 import com.automation.utils.ConfigReader;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class ProductDetailsSteps extends BaseSteps {
 
+    @Then("verify user is on product details page")
+    public void verifyUserIsOnProductDetailsPage() {
+        Assert.assertTrue(productDetailsPage.isProductDetailsPageDisplayed());
+        // CucumberReportManager.attachScreenshot();
+    }
+
+    @And("clicks on add to cart button")
+    public void clicksOnAddToCartButton() {
+        productDetailsPage.ClickOnAddToCartBtn();
+    }
 
     @And("verify the title has the keyword {string}")
     public void verifyTheTitleHasTheKeyword(String keyword) {

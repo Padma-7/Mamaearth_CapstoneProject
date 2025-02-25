@@ -17,7 +17,7 @@ public class AndroidProductListingPage extends BasePage implements ProductListin
     @FindBy(xpath = "//android.widget.TextView[@text='ADD']")
     WebElement ADDBtn;
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Add to cart']")
+    @FindBy(xpath = "(//android.widget.TextView[@text=\"Add to cart\"])")
     List<WebElement> addToCartBtn;
 
     @FindBy(xpath = "//android.widget.TextView[@text=\"Add to cart\"]/../preceding-sibling::android.widget.TextView[2]/..")

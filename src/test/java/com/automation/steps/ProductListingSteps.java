@@ -116,10 +116,6 @@ public class ProductListingSteps extends BaseSteps{
 
     }
 
-    @When("user click on the profile icon from product page")
-    public void userClickOnTheProfileIconFromProductPage() {
-        productDetailsPage.clickOnProfileIcon();
-    }
 
     @Then("verify cart quantity has decreased")
     public void verifyCartQuantityHasDecreased() {

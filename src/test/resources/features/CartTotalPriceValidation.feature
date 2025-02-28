@@ -11,9 +11,7 @@ Feature: Validate Total Price in Cart
     When user selects the first product
     And clicks on product add to cart
     And clicks on cart icon
-
     And user goes back to product listing page
-
     Then verify user is on home page
     When user search for product "desired.product"
     Then verify user is on product listing page

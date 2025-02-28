@@ -1,6 +1,5 @@
 
 Feature: Verifying Total Number Of Products
-  #web and android
 
 #working in web
   #not completed in android
@@ -13,4 +12,5 @@ Feature: Verifying Total Number Of Products
     When user selects "Lipstick" from trending searches
     Then verify user is on product listing page
     #And verify all products contain the trending search keyword "Lipstick"
+    #this step not working for android
     And the total count displayed should match the actual number of products listed

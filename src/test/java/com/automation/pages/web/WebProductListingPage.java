@@ -149,7 +149,7 @@ public class WebProductListingPage extends BasePage implements ProductListingPag
         bodyLotionBtn.click();
     }
 
-    public void selectFirstItem(){
+    public void clickOnFirstItem(){
         productsTitle.get(0).click();
     }
 

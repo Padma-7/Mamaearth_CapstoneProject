@@ -16,9 +16,31 @@ public class AndroidPaymentPage extends BasePage implements PaymentPage {
     @FindBy(xpath = "//android.widget.TextView[@text=\"Cash on delivery (COD)\"]")
     WebElement cashOnDeliveryOption;
 
+    @FindBy(xpath = "//android.widget.TextView[contains(@text,'Pay via Cash')]")
+    WebElement payViaCash;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Thank you, your order has been placed!!']")
+    WebElement confirmationMsg;
 
 
     public boolean isPaymentPageDisplayed() {
         return isDisplayed(paymentPageHeading) && isDisplayed(netBankingOption);
+    }
+
+    @Override
+    public void selectCashOnDelivery() {
+        cashOnDeliveryOption.click();
+
+    }
+
+    @Override
+    public void clickOnPlaceOrderBtn() {
+        payViaCash.click();
+    }
+
+    @Override
+    public boolean isConfirmationMsgDisplayed() {
+        pause(5000);
+        return isDisplayed(confirmationMsg);
     }
 }

@@ -1,6 +1,7 @@
 @web
-Feature: Verifying Login and Logout Functionality
 #working
+Feature: Login, Invalid Login and Logout Functionality
+
   Background:
     Given user opens the website
     Then verify user is on home page
@@ -23,10 +24,13 @@ Feature: Verifying Login and Logout Functionality
     And clicks on logout link
     Then verify user logged out successfully
 
+  Scenario Outline: verify user cannot login with invalid phone number
+    When user enters invalid phone number "<login.phone>"
+    And clicks on login with otp
+    Then verify error message is displayed
 
-
-
-
-
-
-
+    Examples:
+      | login.phone |
+      | 948065      |
+      | 99345678    |
+      | 76195138    |

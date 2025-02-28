@@ -3,9 +3,8 @@ package com.automation.pages.android;
 import com.automation.pages.common.BasePage;
 import com.automation.pages.ui.HomePage;
 import com.automation.utils.ConfigReader;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -27,20 +26,25 @@ public class AndroidHomePage extends BasePage implements HomePage {
     @FindBy(xpath = "//android.widget.TextView[@text='Category']")
     WebElement categoryIcon;
 
-
     @FindBy(xpath = "//android.widget.TextView[@text='Chat']")
     WebElement chatTab;
 
     @FindBy(xpath = "(//com.horcrux.svg.SvgView/following-sibling::android.view.ViewGroup/android.widget.TextView)[1]")
     WebElement cartQty;
-    @FindBy(xpath = "(//com.horcrux.svg.SvgView)[5]/..")
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[3]")
     WebElement plusIcon;
+
     @FindBy(xpath = "//android.widget.TextView[@text='Add to cart']")
     List<WebElement> addToCart;
-    @FindBy(xpath = "(//com.horcrux.svg.SvgView)[4]")
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.view.ViewGroup[1]")
     WebElement minusIcon;
+
     @FindBy(xpath = "//android.widget.TextView[@text=\"Add to cart\"]/../..")
     WebElement firstPdtHome;
+
+    String specificCategoryXpath = "//android.widget.TextView[@text='%s']";
 
 
     @Override
@@ -48,19 +52,17 @@ public class AndroidHomePage extends BasePage implements HomePage {
         if (isDisplayed(dontAllow)) {
             dontAllow.click();
         }
-        pause(5000);
+        pause(3000);
     }
 
     @Override
     public boolean isHomePageDisplayed() {
         handleSplashScreen();
-        pause(5000);
         return isDisplayed(searchBar);
     }
 
     @Override
     public void clickOnProfileIcon() {
-
         handleSplashScreen();
         profileIcon.click();
     }
@@ -69,7 +71,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     public void searchForProduct(String desiredProduct) {
         handleSplashScreen();
         searchBar.click();
-        pause(3000);
+        pause(2000);
         searchBarInput.sendKeys(desiredProduct);
     }
 
@@ -87,11 +89,15 @@ public class AndroidHomePage extends BasePage implements HomePage {
     }
 
     @Override
-    public void goToBabyCareProducts(){
+    public void goToSpecificCategory(String category){
+
+        driver.findElement(By.xpath(String.format(specificCategoryXpath,category))).click();
 
     }
 
     public void clickOnViewAllBtn(){
+
+
 
     }
 
@@ -104,11 +110,11 @@ public class AndroidHomePage extends BasePage implements HomePage {
 
     }
 
-    public void addSameProductToCart(String productNumber) {
+    public void addSameProductToCart(int productNumber) {
 
-        int n = Integer.parseInt(productNumber);
 
-        for (int i = 0; i < n; i++) {
+
+        for (int i = 0; i < productNumber; i++) {
 
             plusIcon.click();
 
@@ -120,7 +126,7 @@ public class AndroidHomePage extends BasePage implements HomePage {
     }
 
     public void addToCartFirstItem() {
-
+        firstPdtHome.click();
     }
 
     public boolean isPopUpDisplayed() {
@@ -139,21 +145,19 @@ public class AndroidHomePage extends BasePage implements HomePage {
 
     }
 
-    public void addProductToCart(String productNumber) {
+    public void addProductToCart(int productNumber) {
 
-        int productNumberInt = Integer.parseInt(productNumber);
 
-        for (int i = 0; i < productNumberInt; i++) {
 
-            addToCart.get(1).click();
+        for (int i = 0; i < productNumber; i++) {
 
-            scrollPage();
+            addToCart.getFirst().click();
 
         }
 
     }
 
-    public boolean isCartNumberUpdated(String cartNumber) {
+    public boolean isCartNumberUpdated(int cartNumber) {
 
         return true;
 

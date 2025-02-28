@@ -80,5 +80,22 @@ public class AndroidAddressPage extends BasePage implements AddressPage {
             return false;
     }
 
+    @Override
+    public void fillInvalidAddress() {
+        if(isDisplayed(firstNameInput)&&isDisplayed(lastNameInput)&&isDisplayed(emailInput)&&isDisplayed(mobileNumberInput)&&isDisplayed(postCodeInput)&&isDisplayed(addressInput2)) {
+            firstNameInput.sendKeys(ConfigReader.getConfigValue("invalid.first.name"));
+            lastNameInput.sendKeys(ConfigReader.getConfigValue("invalid.last.name"));
+            emailInput.sendKeys(ConfigReader.getConfigValue("invalid.email"));
+            mobileNumberInput.sendKeys(ConfigReader.getConfigValue("invalid.mobile.number"));
+            postCodeInput.sendKeys(ConfigReader.getConfigValue("postal.code"));
+            addressInput2.sendKeys(ConfigReader.getConfigValue("invalid.address"));
+        }
+        else if (isDisplayed(pincodeInput)&&isDisplayed(addressInput1)){
+            pincodeInput.sendKeys(ConfigReader.getConfigValue("invalid.postal.code"));
+            addressInput1.sendKeys(ConfigReader.getConfigValue("invalid.address"));
+
+        }
+    }
+
 
 }

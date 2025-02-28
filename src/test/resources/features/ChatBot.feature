@@ -1,4 +1,5 @@
-Feature: Customer Support Chatbot
+@web@android
+Feature: Customer Support Chatbot functionality
   #working web
   Background:
     Given user opens the website

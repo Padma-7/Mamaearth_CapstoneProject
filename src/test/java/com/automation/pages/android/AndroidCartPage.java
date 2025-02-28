@@ -24,7 +24,7 @@ public class AndroidCartPage extends BasePage implements CartPage {
     WebElement cartPageTitle;
     @FindBy(xpath = "//android.widget.TextView[@text=\"Price Summary\"]/..")
     WebElement priceSummary ;
-    @FindBy(xpath = "//android.widget.TextView[@text=\"Add address\"]\n")
+    @FindBy(xpath = "//android.widget.TextView[@text=\"Add address\"]")
     WebElement addAddressBtn ;
     @FindBy(xpath = "//android.widget.TextView[@text=\"Proceed to pay\"]")
     WebElement proceedToPayBtn ;

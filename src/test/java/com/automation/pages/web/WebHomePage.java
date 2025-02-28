@@ -151,7 +151,7 @@ public class WebHomePage extends BasePage implements HomePage {
     }
 
     @Override
-    public void goToBabyCareProducts(){
+    public void goToSpecificCategory(String category){
         Actions actions=new Actions(driver);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         while (!isDisplayed("//div[text()='Baby Care']/../following-sibling::div[@class='viewAlL']//a[text()='VIEW ALL']"))
@@ -175,9 +175,9 @@ public class WebHomePage extends BasePage implements HomePage {
         cart.click();
     }
 
-    public void addSameProductToCart(String productNumber) {
-        int n = Integer.parseInt(productNumber);
-        for (int i = 1; i <= n; i++) {
+    public void addSameProductToCart(int productNumber) {
+
+        for (int i = 1; i <= productNumber; i++) {
             plusIcon.click();
             pause(2000);
         }
@@ -199,17 +199,16 @@ public class WebHomePage extends BasePage implements HomePage {
         return i == 1;
     }
 
-    public void addProductToCart(String productNumber){
-        int n = Integer.parseInt(productNumber);
-        for (int i = 1; i <= n; i++) {
+    public void addProductToCart(int productNumber){
+
+        for (int i = 1; i <= productNumber; i++) {
             addToCart.get(1).click();
             pause(2000);
         }
     }
-    public boolean isCartNumberUpdated(String cartNumber){
+    public boolean isCartNumberUpdated(int cartNumber){
         int i = Integer.parseInt(cartCount.getText());
-        int cartNumberInt = Integer.parseInt(cartNumber);
-        return i == cartNumberInt;
+        return i == cartNumber;
     }
     public void removeProductFromCart(){
         pause(5000);

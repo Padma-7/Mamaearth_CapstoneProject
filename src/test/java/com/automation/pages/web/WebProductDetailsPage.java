@@ -45,7 +45,9 @@ public class WebProductDetailsPage extends BasePage implements ProductDetailsPag
         cartIcon.click();
     }
 
-    public void clickOnProductAddToCartBtn(){}
+    public void clickOnProductAddToCartBtn(){
+        addToCartBtn.click();
+    }
 
 
 }

@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
         glue = "com.automation.steps",
         plugin = {"json:target/cucumber.json", "html:target/cucumber.html",
                 "pretty",
-                "timeline:test-output-thread/"})
+                "timeline:test-output-thread/",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 
 public class TestRunner {
 }

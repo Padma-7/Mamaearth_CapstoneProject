@@ -1,7 +1,7 @@
 @android
-Feature: Verifying Login and Logout Functionality
+#working
+Feature: Login, Invalid Login and Logout Functionality
 
-  #working
   Background:
     Given user opens the website
     Then verify user is on home page
@@ -17,7 +17,6 @@ Feature: Verifying Login and Logout Functionality
     When user enter otp and click on submit button
     Then verify user login is successful
 
-
   Scenario: verify user can logout
     When user enters valid phone number "login.phone"
     And clicks on continue button
@@ -29,5 +28,16 @@ Feature: Verifying Login and Logout Functionality
     When user click on profile icon
     Then verify user is on profile page
     Then verify user logged out successful
+
+  Scenario Outline: verify user cannot login with invalid phone number
+    When user enters invalid phone number "<login.phone>"
+    And clicks on continue button
+    Then verify error message is displayed
+
+    Examples:
+      | login.phone |
+      | 777788      |
+      | 52345678    |
+      | 76195138    |
 
 

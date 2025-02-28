@@ -17,5 +17,5 @@ public interface AddressPage {
 
     boolean isAddressAdded();
 
-    default void fillInvalidAddress(){}
+    void fillInvalidAddress();
 }

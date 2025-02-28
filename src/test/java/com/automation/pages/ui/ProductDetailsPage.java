@@ -14,7 +14,7 @@ public interface ProductDetailsPage {
 
      void clickOnProductAddToCartBtn();
 
-    default boolean HasCartQtyIncreased(String number){return true;}
+    default boolean HasCartQtyIncreased(int number){return true;}
 
     default boolean HasCartQtyDecreased(){return true;}
 

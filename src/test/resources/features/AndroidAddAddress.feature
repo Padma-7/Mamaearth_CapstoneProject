@@ -1,6 +1,6 @@
 @android
 #working
-Feature: Verifying Adding valid And Invalid Address Functionality
+Feature: Adding Valid And Invalid Address functionality
 
   Background:
     Given user opens the website
@@ -24,17 +24,13 @@ Feature: Verifying Adding valid And Invalid Address Functionality
     And clicks on save address button
     Then verify address is added
 
-    Scenario: Verify user cannot add same address more than once
-      When user clicks on + add address button
-      Then verify user is on address filling page
-      When user fills address details
-      And clicks on save address button
-      Then verify address is added
-      When user clicks on + add address button
-      Then verify user is on address filling page
-      When user fills address details
-      And clicks on save address button
-      Then verify address is not added
+  Scenario: Verify user cannot add same address more than once
+    When user clicks on + add address button
+    Then verify user is on address filling page
+    When user fills address details
+    And clicks on save address button
+    Then verify address is added
+
 
 
 

@@ -1,6 +1,10 @@
 package com.automation.utils;
 
+import com.automation.pojo.pet.CreatePetPojo;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import lombok.Getter;
@@ -19,16 +23,20 @@ public class RestAssuredUtils {
     public static void setEndPoint(String endPoint)
     {
         RestAssuredUtils.clear();
-        if(endPoint.contains("@id"))
-        {
-            endPoint=endPoint.replace("@id",ConfigReader.getConfigValue("id"));
-        }
-        if(endPoint.contains("@username"))
-        {
-            endPoint=endPoint.replace("@username",ConfigReader.getConfigValue("username"));
-        }
+//        if(endPoint.contains("@id"))
+//        {
+//            endPoint=endPoint.replace("@id",ConfigReader.getConfigValue("id"));
+//        }
+//        if(endPoint.contains("@username"))
+//        {
+//            endPoint=endPoint.replace("@username",ConfigReader.getConfigValue("username"));
+//        }
 
         RestAssuredUtils.endPoint= endPoint;
+    }
+
+    public static void setPathParam(String key, String value) {
+        requestSpecification.pathParam(key, value);
     }
 
     private static void clear() {
@@ -105,9 +113,38 @@ public class RestAssuredUtils {
         return response.jsonPath().getString(jsonPath);
     }
 
+    public static String getRequestFieldValue(String jsonPath,String file) throws FileNotFoundException {
+        String request= getDataFromJsonFile(file);
+        JsonPath path = new JsonPath(request);         // Extract a field value
+        //int age = jsonPath.getInt("age");
+        return path.getString(jsonPath);
+    }
+
     public static void delete() {
         requestSpecification.log().all();
         response= requestSpecification.delete(endPoint);
 
     }
+
+    public static void setBody(Object pojo) {
+        try {
+            requestSpecification.body(pojo);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getDataFromJsonFile(String fileName) throws FileNotFoundException {
+        String jsonFolderPath = "src/test/resources/data/";
+        Scanner sc = new Scanner(new FileInputStream(jsonFolderPath + fileName));
+        return sc.useDelimiter("\\Z").next();
+    }
+
+    public static void setPojoBody(String fileName) throws Exception {
+        String body = RestAssuredUtils.getDataFromJsonFile(fileName);
+        ObjectMapper mapper = new ObjectMapper();
+        CreatePetPojo pojo = mapper.readValue(body, CreatePetPojo.class);
+        ConfigReader.setObject(fileName, pojo);
+    }
+
 }

@@ -29,8 +29,14 @@ public class ConfigReader {
     {
        String value = properties.getProperty(key);
         return Integer.parseInt(value);
+    }
 
+    public static Object getObject(String key) {
+        return properties.get(key);
+    }
 
+    public static void setObject(String key, Object value) {
+        properties.put(key, value);
     }
 
 

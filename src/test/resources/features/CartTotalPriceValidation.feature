@@ -1,20 +1,25 @@
-Feature: Validate Total Price in Cart
+@android
 #not completed
+Feature: Validate Total Price in Cart
 
   Scenario: User adds multiple items to the cart and verifies the total price
     Given user opens the website
     Then verify user is on home page
-    When user goes to baby care products
-    And clicks on view all button of baby care products
+    When user goes to specific category "specific.category" products
+    And clicks on view all button
     Then verify user is on product listing page
-    And selects baby body lotion
     When user selects the first product
-    Then verify user is on product details page
-    And clicks on add to cart button
-    And clicks on home icon
+    And clicks on product add to cart
+    And clicks on cart icon
+
+    And user goes back to product listing page
+
     Then verify user is on home page
     When user search for product "desired.product"
     Then verify user is on product listing page
+    When user selects the first product
+    And clicks on product add to cart
+    And clicks on cart icon
 
     #When user clicks on add to cart button of first item
     #And clicks on cart icon

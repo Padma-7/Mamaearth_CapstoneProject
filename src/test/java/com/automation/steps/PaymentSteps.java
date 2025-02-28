@@ -9,8 +9,6 @@ public class PaymentSteps extends BaseSteps{
     @Then("verify user is on payment page")
     public void verifyUserIsOnPaymentPage() {
         Assert.assertTrue(paymentPage.isPaymentPageDisplayed());
-        //CucumberReportManager.attachScreenshot();
-
     }
 
     @When("user selects cash on delivery")
@@ -25,8 +23,7 @@ public class PaymentSteps extends BaseSteps{
 
     @Then("verify user cannot place order")
     public void verifyUserCannotPlaceOrder() {
-        Assert.assertTrue(paymentPage.isConfirmationMsgDisplayed());
-       // CucumberReportManager.attachScreenshot();
+        Assert.assertFalse(paymentPage.isConfirmationMsgDisplayed());
 
     }
 }

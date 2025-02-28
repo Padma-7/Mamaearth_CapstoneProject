@@ -9,8 +9,6 @@ public class AddressSteps extends BaseSteps{
     @Then("verify user is on address page")
     public void verifyUserIsOnAddressPage() {
         Assert.assertTrue(addressPage.isAddressPageDisplayed());
-        //CucumberReportManager.attachScreenshot();
-
     }
 
     @When("user fills address details")
@@ -65,4 +63,5 @@ public class AddressSteps extends BaseSteps{
       //  CucumberReportManager.attachScreenshot();
 
     }
+
 }

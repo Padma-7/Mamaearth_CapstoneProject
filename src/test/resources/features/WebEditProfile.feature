@@ -1,8 +1,8 @@
 @web
+#working
 Feature: Verifying user can edit their profile
 
 
-  #working
   Scenario: user edits the information in profile and verifying the changes are saved in web
     Given user opens the website
     Then verify user is on home page

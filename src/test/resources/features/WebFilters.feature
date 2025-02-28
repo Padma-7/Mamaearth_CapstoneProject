@@ -1,6 +1,6 @@
 @web
-Feature: Verifying Filter Functionality
 #working
+Feature: Verifying Filter Functionality
   Background:
     Given user opens the website
     Then verify user is on home page

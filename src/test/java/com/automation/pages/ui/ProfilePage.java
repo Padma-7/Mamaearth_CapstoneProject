@@ -13,7 +13,7 @@ public interface ProfilePage {
     default boolean userLogoutSuccessful() {return false;}
 
 
-    //new
+
     void clickOnEditProfile();
 
     void changeCredentials(String key,String Value);

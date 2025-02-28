@@ -29,7 +29,7 @@ public interface HomePage {
 
     default void selectManageAddressOption(){}
 
-    void goToBabyCareProducts();
+    void goToSpecificCategory(String category);
 
     void clickOnViewAllBtn();
 
@@ -38,12 +38,13 @@ public interface HomePage {
     void clickOnSearchBar();
 
     void clickOnCartIcon();
-    void addSameProductToCart(String productNumber);
+    void addSameProductToCart(int productNumber);
     void addToCartFirstItem();
     boolean isPopUpDisplayed();
     boolean verifyCartNumberShowsOne();
-    void addProductToCart(String productNumber);
-    boolean isCartNumberUpdated(String cartNumber);
+    void addProductToCart(int productNumber);
+
+    boolean isCartNumberUpdated(int cartNumber);
     void removeProductFromCart();
     boolean isRemovedPopUpDisplayed();
 

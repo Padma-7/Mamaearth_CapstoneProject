@@ -23,13 +23,12 @@ public interface ProductListingPage {
 
     boolean isInvalidMessageDisplayed();
 
-    default void clickOnFirstItem(){}
+     void clickOnFirstItem();
 
     default void addToCartFirstItem(){}
 
     default void selectBabyBodyLotion(){}
 
-    default void selectFirstItem(){}
 
     boolean isProductsTitleWithKeyword(String keyword);
 

@@ -17,7 +17,6 @@ public class CartSteps extends BaseSteps{
     @And("verify user gets the price summary")
     public void verifyUserGetsThePriceSummary() {
         Assert.assertTrue(cartPage.isPriceSummaryDisplayed());
-       // CucumberReportManager.attachScreenshot();
 
     }
 
@@ -52,7 +51,6 @@ public class CartSteps extends BaseSteps{
     @Then("verify product name is displayed there")
     public void verifyProductNameIsDisplayedThere() {
         Assert.assertTrue(cartPage.isProductDisplayed());
-       // CucumberReportManager.attachScreenshot();
 
     }
 

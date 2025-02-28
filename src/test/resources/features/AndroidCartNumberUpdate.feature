@@ -1,8 +1,8 @@
 @android
-  #not working
-Feature: Verify the cart number updates based on the action
+#working
+Feature: Cart Number Update functionality
 
-  Scenario: Verify user adds a product to cart and increases the quantity of the same product but the cart number stays 1:
+  Scenario: Verify the cart number updates based on the action
     Given user opens the website
     Then verify user is on home page
     And verify cart is empty
@@ -12,9 +12,9 @@ Feature: Verify the cart number updates based on the action
     And clicks on product add to cart
     Then verify cart quantity shows one
     And user goes back to product listing page
-    When user increases the quantity of the same product by "1"
-    Then verify cart quantity has increased by "1"
-    When user adds "1" different products to cart
-    Then verify cart quantity has increased by "1"
+    When user increases the quantity of the same product by 1
+    Then verify cart quantity has increased by 1
+    When user adds 1 different products to cart
+    Then verify cart quantity has increased by 1
     When user remove that product
     Then verify cart quantity has decreased

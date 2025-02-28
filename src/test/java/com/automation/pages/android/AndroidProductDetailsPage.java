@@ -66,6 +66,7 @@ public class AndroidProductDetailsPage extends BasePage implements ProductDetail
     }
 
     public void clickOnProductAddToCartBtn(){
+        pause(2000);
         productAddToCart.click();
         if (isDisplayed(closeBtn)) {
             closeBtn.click();
@@ -73,15 +74,15 @@ public class AndroidProductDetailsPage extends BasePage implements ProductDetail
         }
     }
 
-    public boolean HasCartQtyIncreased(String number){
-        int numberInt=Integer.parseInt(number);
-        System.out.println(numberInt+":numberInt");
-        pause(2000);
+    public boolean HasCartQtyIncreased(int number){
+
+        System.out.println(number+":numberInt");
+        pause(3000);
         System.out.println(cartQty.getText());
         int cartQtyIntNow=Integer.parseInt(cartQty.getText());
         System.out.println(cartQtyIntNow+":cartQtyIntNow");
         int cartQtyNumber= ConfigReader.getIntConfigValue("cartQtyNumber");
-        if (cartQtyNumber+numberInt==cartQtyIntNow){
+        if (cartQtyNumber+number==cartQtyIntNow){
             ConfigReader.setConfigValue("cartQtyNumber",cartQty.getText());
             return true;
 
@@ -93,6 +94,7 @@ public class AndroidProductDetailsPage extends BasePage implements ProductDetail
     }
 
     public boolean HasCartQtyDecreased(){
+        System.out.println(cartQty.getText());
         int cartQtyIntNow=Integer.parseInt(cartQty.getText());
         int cartQtyNumber= ConfigReader.getIntConfigValue("cartQtyNumber");
         if (cartQtyNumber-1==cartQtyIntNow){
@@ -118,6 +120,7 @@ public class AndroidProductDetailsPage extends BasePage implements ProductDetail
 
     @Override
     public void clickOnCartIcon(){
+        pause(2000);
         if(isDisplayed(cartIcon)){
             cartIcon.click();
         } else if (isDisplayed(viewCartBtn)) {

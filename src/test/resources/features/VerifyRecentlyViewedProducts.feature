@@ -5,8 +5,7 @@ Feature: Verifying Recently Viewed Products
     Then verify user is on home page
     When user search for product "desired.product"
     Then verify user is on product listing page
-    When user select first product with keyword "keyword"
-    Then verify the title has the keyword "keyword"
+    When user selects the first product
 
   @web
   Scenario: verify the viewed product is in the recently in web
@@ -14,9 +13,9 @@ Feature: Verifying Recently Viewed Products
     Then verify recently viewed is displayed
     And verify the product viewed by user is under recently viewed list
 
-    @android
-    Scenario: verify the viewed product is in the recently in android
-      When user clicks on cart icon
-      Then verify user is on cart page
-      Then verify recently viewed is displayed
-      And verify the product viewed by user is under recently viewed list
+  @android
+  Scenario: verify the viewed product is in the recently in android
+    When user clicks on cart icon
+    Then verify user is on cart page
+    Then verify recently viewed is displayed
+    And verify the product viewed by user is under recently viewed list

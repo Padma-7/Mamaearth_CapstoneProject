@@ -18,7 +18,7 @@ public class HomeSteps extends BaseSteps{
     @Then("verify user is on home page")
     public void verify_user_is_on_home_page() {
         Assert.assertTrue(homePage.isHomePageDisplayed());
-        //CucumberReportManager.attachScreenshot();
+
 
     }
 
@@ -35,6 +35,7 @@ public class HomeSteps extends BaseSteps{
     @When("user search for product {string}")
     public void userSearchForProduct(String desiredProduct) {
         homePage.searchForProduct(ConfigReader.getConfigValue(desiredProduct));
+
     }
 
     @When("user clicks on chat icon")
@@ -73,13 +74,13 @@ public class HomeSteps extends BaseSteps{
         homePage.selectManageAddressOption();
     }
 
-    @When("user goes to baby care products")
-    public void userGoesToBabyCareProducts() {
-        homePage.goToBabyCareProducts();
+    @When("user goes to specific category {string} products")
+    public void userGoesToSpecificCategory(String category) {
+        homePage.goToSpecificCategory(category);
     }
 
-    @And("clicks on view all button of baby care products")
-    public void clicksOnViewAllButtonOfBabyCareProducts() {
+    @And("clicks on view all button")
+    public void clicksOnViewAllButton() {
         homePage.clickOnViewAllBtn();
     }
 
@@ -114,31 +115,29 @@ public class HomeSteps extends BaseSteps{
     @Then("verify added to cart popup is displayed")
     public void verifyAddedToCartPopupIsDisplayed() {
         Assert.assertTrue(homePage.isPopUpDisplayed());
-       // CucumberReportManager.attachScreenshot();
 
     }
 
-    @When("user increases the quantity of the same product by {string}")
-    public void userIncreasesTheQuantityOfTheProductTo(String productNumber) {
+    @When("user increases the quantity of the same product by {int}")
+    public void userIncreasesTheQuantityOfTheProductTo(int productNumber) {
         homePage.addSameProductToCart(productNumber);
     }
 
     @Then("verify cart quantity shows one")
     public void verifyCartQuantityShows() {
         Assert.assertTrue(homePage.verifyCartNumberShowsOne());
-        //CucumberReportManager.attachScreenshot();
 
     }
 
-    @When("user adds {string} different products to cart")
-    public void userAddsDifferentProductsToCart(String productNumber) {
+    @When("user adds {int} different products to cart")
+    public void userAddsDifferentProductsToCart(int productNumber) {
         homePage.addProductToCart(productNumber);
     }
 
-    @Then("verify cart quantity has updated to {string}")
-    public void verifyCartQuantityHasUpdatedTo(String cartNumber) {
+    @Then("verify cart quantity has updated to {int}")
+    public void verifyCartQuantityHasUpdatedTo(int cartNumber) {
         Assert.assertTrue(homePage.isCartNumberUpdated(cartNumber));
-       // CucumberReportManager.attachScreenshot();
+
 
     }
 
@@ -155,8 +154,8 @@ public class HomeSteps extends BaseSteps{
     }
 
 
-
-
-
-
+    @When("user search for product name {string}")
+    public void userSearchForProductName(String product) {
+        homePage.searchForProduct(product);
+    }
 }

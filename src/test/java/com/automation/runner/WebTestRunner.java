@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.automation.steps",
-        plugin = {"json:target/web/cucumber.json", "html:CucumberReports/basic_web_report.html"},
+        plugin = {"json:target/web/cucumber.json", "html:CucumberReports/basic_web_report.html", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         tags = "@web"
 )
 

@@ -1,8 +1,10 @@
+
 Feature: Verifying Total Number Of Products
   #web and android
 
 #working in web
-  #not completed
+  #not completed in android
+  @web@android
   Scenario: verify total count displayed should match the actual number of products listed
     Given user opens the website
     Then verify user is on home page

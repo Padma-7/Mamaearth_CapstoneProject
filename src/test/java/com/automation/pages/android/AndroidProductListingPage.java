@@ -59,15 +59,14 @@ public class AndroidProductListingPage extends BasePage implements ProductListin
     @FindBy(xpath="//android.widget.TextView[@text='No Results']")
     WebElement invalidSearchMessage;
 
-    @FindBy(xpath="//android.widget.TextView[contains(@text,'results found')]/following-sibling::android.view.ViewGroup[1]")
+    @FindBy(xpath="//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]")
     WebElement firstItem ;
 
 
 
     @Override
     public boolean isProductListingPageDisplayed(){
-        pause(4000);
-        return isDisplayed(productsTitle.get(0)) || isDisplayed(addToCartBtn.get(0)) || isDisplayed(sortIcon) ;
+        return isDisplayed(sortIcon)  || isDisplayed(resultsFound);
     }
 
     @Override
@@ -294,7 +293,15 @@ public class AndroidProductListingPage extends BasePage implements ProductListin
     @Override
     public void clickOnFirstItem(){
         firstItem.click();
+        try{
+            firstItem.click();
+
+        } catch (Exception e) {
+            System.out.println("Can't click it twice!");
+        }
     }
+
+
 
 
 }

@@ -1,6 +1,7 @@
 @android
-Feature: Verify Filter Functionality
-  #working
+#working
+Feature: Verify Filter and Sort functionality
+
 
   Background:
     Given user opens the website

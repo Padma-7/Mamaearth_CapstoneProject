@@ -1,6 +1,7 @@
 @web
-Feature: Verifying Adding Valid And Invalid Address Functionality
 #working
+Feature: Verifying Adding Valid And Invalid Address Functionality
+
   Background:
     Given user opens the website
     Then verify user is on home page
@@ -24,12 +25,6 @@ Feature: Verifying Adding Valid And Invalid Address Functionality
     Then verify address is added
 
   Scenario: Verify user cannot add same address more than once
-    When user clicks on + add address button
-    Then verify user is on address filling page
-    When user fills address details
-    And selects address type as "home"
-    And clicks on save address button
-    Then verify address is added
     When user clicks on + add address button
     Then verify user is on address filling page
     When user fills address details

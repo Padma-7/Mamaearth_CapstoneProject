@@ -1,7 +1,7 @@
+#working
+@web @android
 Feature: Verifying product does not stay in cart without login
 
-  #working
-  @web @android
   Scenario: user adds a product to cart without login
     Given user opens the website
     Then verify user is on home page
@@ -11,7 +11,6 @@ Feature: Verifying product does not stay in cart without login
     Then verify the title has the keyword "keyword"
     When user add the product to cart
 
-  @web @android
   Scenario: verifying product not in cart when opened again
     Given user opens the website
     Then verify user is on home page

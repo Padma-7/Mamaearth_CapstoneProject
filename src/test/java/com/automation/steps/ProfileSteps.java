@@ -45,7 +45,7 @@ public class ProfileSteps extends BaseSteps{
     public void selectsAddressesOption() {
         profilePage.selectAddresses();
     }
-    //new
+
     @When("user click on Edit profile option")
     public void userClickOnEditProfileOption() {
         profilePage.clickOnEditProfile();
